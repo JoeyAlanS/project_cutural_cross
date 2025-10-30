@@ -1,0 +1,193 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1xt5lnbxed0p"]
+
+[ext_resource type="Script" uid="uid://ccpoxd41of7kn" path="res://scripts/options.gd" id="1_2iy26"]
+[ext_resource type="Texture2D" uid="uid://bp18vcgiqb2ea" path="res://assets/images/background-1280.png" id="1_yjkok"]
+[ext_resource type="Theme" uid="uid://cg8dsx2mjficm" path="res://assets/button-menu-art/title.tres" id="2_2iy26"]
+
+[sub_resource type="Animation" id="Animation_b3w7a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pyl7j"]
+resource_name = "reveal"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.30059132),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.30059132, 0.7013141),
+"transitions": PackedFloat32Array(3.363586, 1),
+"update": 0,
+"values": [Vector2(-850, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rr2b"]
+_data = {
+&"RESET": SubResource("Animation_b3w7a"),
+&"reveal": SubResource("Animation_pyl7j")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kv8mn"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2iy26")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4rr2b")
+}
+autoplay = "reveal"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1280.0
+offset_bottom = 740.0
+size_flags_horizontal = 4
+texture = ExtResource("1_yjkok")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.109000005
+offset_right = 1140.48
+offset_bottom = 760.0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="lb_volume_global" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2iy26")
+text = "VOLUME GLOBAL"
+horizontal_alignment = 1
+
+[node name="sld_volume_global" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="HSeparator9" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="lb_volume_music" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2iy26")
+text = "VOLUME Música"
+horizontal_alignment = 1
+
+[node name="sld_volume_musica" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.8
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="lb_sound_effect" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2iy26")
+text = "EFEITOS SONOROS"
+horizontal_alignment = 1
+
+[node name="sld_sound_effect" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="HSeparator8" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="chbox_fullscreen" type="CheckBox" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2iy26")
+text = "tela cheia"
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="HSeparator6" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="HSeparator7" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
+
+[node name="btn_back" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_2iy26")
+text = "VOLTAR"
+
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/sld_volume_global" to="." method="_on_sld_volume_global_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/sld_volume_musica" to="." method="_on_sld_volume_musica_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/sld_sound_effect" to="." method="_on_sld_sound_effect_value_changed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/VBoxContainer/chbox_fullscreen" to="." method="_on_chbox_fullscreen_toggled"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/btn_back" to="." method="_on_btn_back_pressed"]

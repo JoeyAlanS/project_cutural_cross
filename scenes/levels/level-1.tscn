@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bii2pgipmdp8w"]
+
+[node name="StartGame" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Container" type="Container" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/Container"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Container"]
+layout_mode = 2
