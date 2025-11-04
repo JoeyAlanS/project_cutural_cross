@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://skqpaosy6xi6"
-path="res://.godot/imported/game_over.png-91438731c1e8801ff2af9656bc77d30c.ctex"
+uid="uid://c01lyji4uredo"
+path="res://.godot/imported/logo-cultural-cross.png-cbffb03c6d098c5b376a40ed22bfeb8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/game_over.png"
-dest_files=["res://.godot/imported/game_over.png-91438731c1e8801ff2af9656bc77d30c.ctex"]
+source_file="res://assets/images/huds/logo-cultural-cross.png"
+dest_files=["res://.godot/imported/logo-cultural-cross.png-cbffb03c6d098c5b376a40ed22bfeb8f.ctex"]
 
 [params]
 

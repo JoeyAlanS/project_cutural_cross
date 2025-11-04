@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _on_btn_back_pressed() -> void:
 	settingsManager.save_settings()
-	get_tree().change_scene_to_file("res://scenes/title.tscn")
+	get_tree().change_scene_to_file("res://scenes/huds/title.tscn")
 
 func _on_chbox_fullscreen_toggled(toggled_on: bool) -> void:
 	settingsManager.is_fullscreen = toggled_on

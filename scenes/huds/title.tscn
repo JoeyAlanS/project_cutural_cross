@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dc2o77xlw0wyf"]
 
-[ext_resource type="Script" uid="uid://c7egf7l640q32" path="res://scripts/title.gd" id="1_3xoar"]
-[ext_resource type="Texture2D" uid="uid://bp18vcgiqb2ea" path="res://assets/images/background-1280.png" id="1_kpexm"]
-[ext_resource type="Texture2D" uid="uid://c01lyji4uredo" path="res://assets/images/logo-cultural-cross.png" id="2_3xoar"]
+[ext_resource type="Script" uid="uid://c7egf7l640q32" path="res://scripts/huds/title.gd" id="1_3xoar"]
+[ext_resource type="Texture2D" uid="uid://bp18vcgiqb2ea" path="res://assets/images/huds/background-1280.png" id="1_kpexm"]
+[ext_resource type="Texture2D" uid="uid://c01lyji4uredo" path="res://assets/images/huds/logo-cultural-cross.png" id="2_3xoar"]
 [ext_resource type="Theme" uid="uid://cg8dsx2mjficm" path="res://assets/button-menu-art/title.tres" id="3_mom7w"]
 
 [sub_resource type="Animation" id="Animation_b3w7a"]

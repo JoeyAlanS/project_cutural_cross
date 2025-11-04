@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1xt5lnbxed0p"]
 
-[ext_resource type="Script" uid="uid://ccpoxd41of7kn" path="res://scripts/options.gd" id="1_2iy26"]
-[ext_resource type="Texture2D" uid="uid://bp18vcgiqb2ea" path="res://assets/images/background-1280.png" id="1_yjkok"]
-[ext_resource type="Theme" uid="uid://cg8dsx2mjficm" path="res://assets/button-menu-art/title.tres" id="2_2iy26"]
+[ext_resource type="Script" uid="uid://ccpoxd41of7kn" path="res://scripts/huds/options.gd" id="1_8bich"]
+[ext_resource type="Texture2D" uid="uid://bp18vcgiqb2ea" path="res://assets/images/huds/background-1280.png" id="2_vamep"]
+[ext_resource type="Theme" uid="uid://cg8dsx2mjficm" path="res://assets/button-menu-art/title.tres" id="3_mpd2a"]
 
 [sub_resource type="Animation" id="Animation_b3w7a"]
 length = 0.001
@@ -74,7 +74,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_2iy26")
+script = ExtResource("1_8bich")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -88,7 +88,7 @@ offset_top = 2.0
 offset_right = 1280.0
 offset_bottom = 740.0
 size_flags_horizontal = 4
-texture = ExtResource("1_yjkok")
+texture = ExtResource("2_vamep")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -110,7 +110,7 @@ alignment = 1
 
 [node name="lb_volume_global" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_2iy26")
+theme = ExtResource("3_mpd2a")
 text = "VOLUME GLOBAL"
 horizontal_alignment = 1
 
@@ -126,7 +126,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
 
 [node name="lb_volume_music" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_2iy26")
+theme = ExtResource("3_mpd2a")
 text = "VOLUME Música"
 horizontal_alignment = 1
 
@@ -142,7 +142,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
 
 [node name="lb_sound_effect" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_2iy26")
+theme = ExtResource("3_mpd2a")
 text = "EFEITOS SONOROS"
 horizontal_alignment = 1
 
@@ -162,7 +162,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
 
 [node name="chbox_fullscreen" type="CheckBox" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_2iy26")
+theme = ExtResource("3_mpd2a")
 text = "tela cheia"
 
 [node name="HSeparator4" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer"]
@@ -183,7 +183,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_kv8mn")
 
 [node name="btn_back" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_2iy26")
+theme = ExtResource("3_mpd2a")
 text = "VOLTAR"
 
 [connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/sld_volume_global" to="." method="_on_sld_volume_global_value_changed"]
