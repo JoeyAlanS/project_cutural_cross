@@ -109,7 +109,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8u835")
 [node name="btn_restart" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_ieafl")
-text = "RESTART"
+text = "REniciar"
 
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
 layout_mode = 2
@@ -118,7 +118,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_8u835")
 [node name="btn_quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_ieafl")
-text = "QUIT GAME"
+text = "sair do jogo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

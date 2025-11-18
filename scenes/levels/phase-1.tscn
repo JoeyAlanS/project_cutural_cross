@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://lqoe8enm5qn4"]
+[gd_scene load_steps=8 format=3 uid="uid://lqoe8enm5qn4"]
 
 [ext_resource type="Script" uid="uid://b2dn3id1pklsq" path="res://scripts/levels/phase-1.gd" id="1_snng0"]
 [ext_resource type="Texture2D" uid="uid://y2kswq7sr1bv" path="res://assets/images/levels-images/japan-level/backgorung-japa.png" id="2_ba6g4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="4_5pg0e"]
 [ext_resource type="PackedScene" uid="uid://c151v0x2qmj3t" path="res://scenes/characters/player_2.tscn" id="5_mwq25"]
 [ext_resource type="PackedScene" uid="uid://343gqdvniw4e" path="res://scenes/levels/obstaculos.tscn" id="6_s2hio"]
+[ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="7_ba6g4"]
 
 [node name="phase-1" type="Node"]
 script = ExtResource("1_snng0")
@@ -44,6 +45,8 @@ position = Vector2(-99, 497)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.085
+
+[node name="pause_menu" parent="." instance=ExtResource("7_ba6g4")]
 
 [connection signal="body_entered" from="player" to="." method="_on_player_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
