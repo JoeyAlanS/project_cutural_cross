@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdlto0o41dvqb"]
+
+[ext_resource type="Script" uid="uid://cmawyq624ogyi" path="res://scenes/levels/scene_manager.gd" id="1_f3ops"]
+[ext_resource type="Shader" uid="uid://c0348kgtj0fhq" path="res://scenes/levels/fade.gdshader" id="2_fkay7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fkay7"]
+shader = ExtResource("2_fkay7")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+shader_parameter/numberOfTiles = Vector2(15, 8.4375)
+shader_parameter/pixelsPrTile = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_fkay7"]
+resource_name = "transition_out"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("transitionColor:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybmp1"]
+_data = {
+&"transition_out": SubResource("Animation_fkay7")
+}
+
+[node name="SceneManager" type="CanvasLayer"]
+script = ExtResource("1_f3ops")
+
+[node name="transitionColor" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_fkay7")
+anchors_preset = -1
+anchor_right = 0.008
+offset_right = 1272.76
+offset_bottom = 726.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="transitionAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ybmp1")
+}

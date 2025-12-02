@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://det7kkrrdnnj7"]
+
+[ext_resource type="Script" uid="uid://b2dn3id1pklsq" path="res://scripts/levels/phase-1.gd" id="1_66vnx"]
+[ext_resource type="Texture2D" uid="uid://cuhq0lpgv6kq3" path="res://assets/images/levels-images/Egypt-level.jpg" id="2_66vnx"]
+[ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="3_7yhrc"]
+[ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="4_bao17"]
+[ext_resource type="PackedScene" uid="uid://c151v0x2qmj3t" path="res://scenes/characters/player_2.tscn" id="5_680jh"]
+[ext_resource type="PackedScene" uid="uid://343gqdvniw4e" path="res://scenes/levels/obstaculos.tscn" id="6_jxf07"]
+[ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="7_kxqqf"]
+[ext_resource type="PackedScene" uid="uid://vbyh1qnct8xb" path="res://scenes/scene_trigger.tscn" id="8_t1bmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66vnx"]
+radius = 30.016663
+
+[node name="phase-2" type="Node"]
+script = ExtResource("1_66vnx")
+
+[node name="egito" type="Sprite2D" parent="."]
+position = Vector2(643, 362.5)
+scale = Vector2(1.2480469, 0.70996094)
+texture = ExtResource("2_66vnx")
+
+[node name="Portal" parent="." instance=ExtResource("3_7yhrc")]
+position = Vector2(633, 164)
+collision_mask = 4
+
+[node name="player" parent="." instance=ExtResource("4_bao17")]
+position = Vector2(503, 679)
+collision_layer = 9
+collision_mask = 2
+
+[node name="player2" parent="." instance=ExtResource("5_680jh")]
+position = Vector2(719, 639)
+collision_layer = 9
+collision_mask = 2
+
+[node name="Obstaculos" parent="." instance=ExtResource("6_jxf07")]
+visible = false
+position = Vector2(-103, 214)
+
+[node name="Obstaculos2" parent="." instance=ExtResource("6_jxf07")]
+visible = false
+position = Vector2(-109, 355)
+
+[node name="Obstaculos3" parent="." instance=ExtResource("6_jxf07")]
+visible = false
+position = Vector2(-99, 497)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.085
+
+[node name="pause_menu" parent="." instance=ExtResource("7_kxqqf")]
+
+[node name="SceneTrigger" parent="." instance=ExtResource("8_t1bmi")]
+light_mask = 0
+visibility_layer = 8
+position = Vector2(636, 120)
+connected_scene = "phase_3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+z_index = 1
+position = Vector2(-4, -9)
+shape = SubResource("CircleShape2D_66vnx")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
