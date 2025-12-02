@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dyh084f5fveax"]
+[gd_scene load_steps=9 format=3 uid="uid://dyh084f5fveax"]
 
 [ext_resource type="Texture2D" uid="uid://cluk2uy36qdpg" path="res://scenes/egito-1-2.jpeg" id="1_rjiiu"]
+[ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="2_uj1uc"]
+[ext_resource type="PackedScene" uid="uid://c151v0x2qmj3t" path="res://scenes/characters/player_2.tscn" id="3_7tsmv"]
+[ext_resource type="PackedScene" uid="uid://343gqdvniw4e" path="res://scenes/levels/obstaculos.tscn" id="4_o5cts"]
+[ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="5_cjcb0"]
+[ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="6_r8ls5"]
+[ext_resource type="PackedScene" uid="uid://vbyh1qnct8xb" path="res://scenes/scene_trigger.tscn" id="7_vt4v6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uck6k"]
+radius = 34.36568
 
 [node name="phase-1-2" type="Node"]
 
@@ -8,3 +17,43 @@
 position = Vector2(641.25006, 358.25)
 scale = Vector2(1.2495118, 0.69189453)
 texture = ExtResource("1_rjiiu")
+
+[node name="player" parent="." instance=ExtResource("2_uj1uc")]
+position = Vector2(500, 716)
+collision_layer = 9
+collision_mask = 2
+
+[node name="player2" parent="." instance=ExtResource("3_7tsmv")]
+position = Vector2(766, 672)
+collision_layer = 9
+collision_mask = 2
+
+[node name="Obstaculos" parent="." instance=ExtResource("4_o5cts")]
+visible = false
+position = Vector2(-103, 214)
+
+[node name="Obstaculos2" parent="." instance=ExtResource("4_o5cts")]
+visible = false
+position = Vector2(-109, 355)
+
+[node name="Obstaculos3" parent="." instance=ExtResource("4_o5cts")]
+visible = false
+position = Vector2(-99, 497)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.085
+
+[node name="pause_menu" parent="." instance=ExtResource("5_cjcb0")]
+
+[node name="Portal" parent="." instance=ExtResource("6_r8ls5")]
+position = Vector2(633, 181)
+collision_mask = 4
+
+[node name="SceneTrigger" parent="." instance=ExtResource("7_vt4v6")]
+position = Vector2(636, 125)
+connected_scene = "phase-2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+z_index = 1
+position = Vector2(-4, 7)
+shape = SubResource("CircleShape2D_uck6k")

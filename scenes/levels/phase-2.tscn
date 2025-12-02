@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://det7kkrrdnnj7"]
 
 [ext_resource type="Script" uid="uid://b2dn3id1pklsq" path="res://scripts/levels/phase-1.gd" id="1_66vnx"]
-[ext_resource type="Texture2D" uid="uid://cuhq0lpgv6kq3" path="res://assets/images/levels-images/Egypt-level.jpg" id="2_66vnx"]
+[ext_resource type="Texture2D" uid="uid://dwe0efgknie88" path="res://assets/images/levels-images/egito-level/egito-fase-2.png" id="2_t1bmi"]
 [ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="3_7yhrc"]
 [ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="4_bao17"]
 [ext_resource type="PackedScene" uid="uid://c151v0x2qmj3t" path="res://scenes/characters/player_2.tscn" id="5_680jh"]
@@ -16,9 +16,9 @@ radius = 30.016663
 script = ExtResource("1_66vnx")
 
 [node name="egito" type="Sprite2D" parent="."]
-position = Vector2(643, 362.5)
-scale = Vector2(1.2480469, 0.70996094)
-texture = ExtResource("2_66vnx")
+position = Vector2(640, 359.50003)
+scale = Vector2(0.6604167, 0.6657408)
+texture = ExtResource("2_t1bmi")
 
 [node name="Portal" parent="." instance=ExtResource("3_7yhrc")]
 position = Vector2(633, 164)
@@ -55,7 +55,7 @@ wait_time = 3.085
 light_mask = 0
 visibility_layer = 8
 position = Vector2(636, 120)
-connected_scene = "phase_3"
+connected_scene = "phase_2_3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 z_index = 1

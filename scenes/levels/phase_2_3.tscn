@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp8sxyxixrd2j"]
+[gd_scene load_steps=9 format=3 uid="uid://bp8sxyxixrd2j"]
 
 [ext_resource type="Texture2D" uid="uid://w8udgq01nc15" path="res://scenes/brasil-2-3.jpeg" id="1_smm3c"]
+[ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="2_ykhlg"]
+[ext_resource type="PackedScene" uid="uid://c151v0x2qmj3t" path="res://scenes/characters/player_2.tscn" id="3_tsmn8"]
+[ext_resource type="PackedScene" uid="uid://343gqdvniw4e" path="res://scenes/levels/obstaculos.tscn" id="4_dqcms"]
+[ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="5_x2oqc"]
+[ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="6_3787h"]
+[ext_resource type="PackedScene" uid="uid://vbyh1qnct8xb" path="res://scenes/scene_trigger.tscn" id="7_hfekl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ykhlg"]
+radius = 34.36568
 
 [node name="phase-2-3" type="Node"]
 
@@ -8,3 +17,43 @@
 position = Vector2(642.5, 359.49997)
 scale = Vector2(0.8300781, 0.6962891)
 texture = ExtResource("1_smm3c")
+
+[node name="player" parent="." instance=ExtResource("2_ykhlg")]
+position = Vector2(500, 716)
+collision_layer = 9
+collision_mask = 2
+
+[node name="player2" parent="." instance=ExtResource("3_tsmn8")]
+position = Vector2(766, 672)
+collision_layer = 9
+collision_mask = 2
+
+[node name="Obstaculos" parent="." instance=ExtResource("4_dqcms")]
+visible = false
+position = Vector2(-103, 214)
+
+[node name="Obstaculos2" parent="." instance=ExtResource("4_dqcms")]
+visible = false
+position = Vector2(-109, 355)
+
+[node name="Obstaculos3" parent="." instance=ExtResource("4_dqcms")]
+visible = false
+position = Vector2(-99, 497)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.085
+
+[node name="pause_menu" parent="." instance=ExtResource("5_x2oqc")]
+
+[node name="Portal" parent="." instance=ExtResource("6_3787h")]
+position = Vector2(633, 181)
+collision_mask = 4
+
+[node name="SceneTrigger" parent="." instance=ExtResource("7_hfekl")]
+position = Vector2(636, 125)
+connected_scene = "phase_3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
+z_index = 1
+position = Vector2(-4, 7)
+shape = SubResource("CircleShape2D_ykhlg")

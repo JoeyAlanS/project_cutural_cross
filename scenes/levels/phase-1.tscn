@@ -53,7 +53,7 @@ wait_time = 3.085
 
 [node name="SceneTrigger" parent="." instance=ExtResource("8_ehuar")]
 position = Vector2(693, 127)
-connected_scene = "phase-2"
+connected_scene = "phase_1_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 z_index = 1
