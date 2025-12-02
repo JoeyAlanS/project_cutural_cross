@@ -1,18 +1,18 @@
 extends AudioStreamPlayer
 
-# Funções de controle de estado (Stop, Pause, etc.)
 var is_paused_by_game: bool = false
 
 func _ready() -> void:
 	play_new_music("res://assets/sounds/main-menu-music.mp3")
 
 func play_new_music(music_path: String) -> void:
+	if music_path == "": 
+		stop()
+		return
+	
 	stop()
-	
 	stream = load(music_path)
-	
 	bus = "MUSIC"
-	
 	play()
 	is_paused_by_game = false
 

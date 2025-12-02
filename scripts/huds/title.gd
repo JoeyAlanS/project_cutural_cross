@@ -5,7 +5,7 @@ extends Control
 func _ready() -> void:
 	pass
 func _on_btn_start_pressed() -> void:
-	musicPlayer.play_new_music("res://assets/sounds/Corrida no Torii.mp3") 
+	musicPlayer.play_new_music("res://assets/sounds/japan.mp3") 
 	
 	get_tree().change_scene_to_file("res://scenes/levels/phase-1.tscn")
 

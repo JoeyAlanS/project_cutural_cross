@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp8sxyxixrd2j"]
+
+[ext_resource type="Texture2D" uid="uid://w8udgq01nc15" path="res://scenes/brasil-2-3.jpeg" id="1_smm3c"]
+
+[node name="phase-2-3" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(642.5, 359.49997)
+scale = Vector2(0.8300781, 0.6962891)
+texture = ExtResource("1_smm3c")

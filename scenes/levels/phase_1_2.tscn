@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyh084f5fveax"]
+
+[ext_resource type="Texture2D" uid="uid://cluk2uy36qdpg" path="res://scenes/egito-1-2.jpeg" id="1_rjiiu"]
+
+[node name="phase-1-2" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(641.25006, 358.25)
+scale = Vector2(1.2495118, 0.69189453)
+texture = ExtResource("1_rjiiu")

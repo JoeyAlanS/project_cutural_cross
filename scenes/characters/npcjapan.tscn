@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://srs2bk47sxsv"]
+
+[ext_resource type="Texture2D" uid="uid://b3vw8yocx5jli" path="res://assets/characters-animation/Idle.png" id="1_4espp"]
+[ext_resource type="Script" uid="uid://kd7gpttg4hx0" path="res://scripts/npcjapan.gd" id="1_6c01r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c01r"]
+atlas = ExtResource("1_4espp")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq1ri"]
+atlas = ExtResource("1_4espp")
+region = Rect2(32, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nsxp"]
+atlas = ExtResource("1_4espp")
+region = Rect2(64, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjrgh"]
+atlas = ExtResource("1_4espp")
+region = Rect2(96, 0, 32, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50tsk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c01r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq1ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nsxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjrgh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3rhn"]
+size = Vector2(22.8, 24)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5pi0"]
+bg_color = Color(0, 0, 0, 0.27450982)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5p2v"]
+font_size = 20
+font_color = Color(0.2627451, 1, 0.3882353, 1)
+shadow_size = 4
+shadow_color = Color(0.87058824, 0, 0, 1)
+
+[node name="Npcjapan" type="Area2D"]
+script = ExtResource("1_6c01r")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-34.375, -62.000004)
+scale = Vector2(5.3359375, 4)
+sprite_frames = SubResource("SpriteFrames_50tsk")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.6968649
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 5
+visibility_layer = 5
+position = Vector2(-35, -41)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_m3rhn")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 100.0
+offset_top = 480.0
+offset_right = 1200.0
+offset_bottom = 630.0
+theme_override_font_sizes/font_size = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_r5pi0")
+autowrap_mode = 2
+
+[node name="TextoDialogo" type="Label" parent="CanvasLayer"]
+offset_left = 150.0
+offset_top = 495.0
+offset_right = 1150.0
+offset_bottom = 615.0
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="CanvasLayer"]
+
+[node name="LabelInteracao" type="Label" parent="."]
+offset_left = -96.0
+offset_top = -125.0
+offset_right = 82.0
+offset_bottom = -71.0
+text = "Pressione 'E' "
+label_settings = SubResource("LabelSettings_a5p2v")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

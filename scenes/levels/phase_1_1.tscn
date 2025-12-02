@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c87x8chad53q3"]
+
+[ext_resource type="Texture2D" uid="uid://cds2sqqy2gi37" path="res://scenes/japao-1-1.jpeg" id="1_j3nqv"]
+
+[node name="phase-1-1" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(639.00006, 357.5)
+scale = Vector2(0.8307291, 0.69628906)
+texture = ExtResource("1_j3nqv")
