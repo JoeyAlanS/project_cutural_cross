@@ -10,10 +10,9 @@ var pode_avancar = false
 var fala_index = 0
 
 var falas = [
-	"Olá, viajante.",
-	"Bem-vindo ao Japão!",
-	"Terra dos samurais e da alta tecnologia.",
-	"Desde o período Edo até os dias de hoje, tradição e futuro sempre caminharam juntos por essas ruas."
+	"Este é o Brasil!",
+	"Povos indígenas já viviam aqui muito antes da chegada portuguesa em 1500.",
+	"Da mistura de culturas nasceu a energia que você sente nas ruas."
 ]
 
 func _ready() -> void:

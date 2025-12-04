@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c87x8chad53q3"]
+[gd_scene load_steps=10 format=3 uid="uid://c87x8chad53q3"]
 
 [ext_resource type="Texture2D" uid="uid://cds2sqqy2gi37" path="res://scenes/japao-1-1.jpeg" id="1_j3nqv"]
 [ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="2_oxku7"]
@@ -7,54 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="5_u11xl"]
 [ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="6_gqaik"]
 [ext_resource type="PackedScene" uid="uid://vbyh1qnct8xb" path="res://scenes/scene_trigger.tscn" id="7_gmcjn"]
-[ext_resource type="Texture2D" uid="uid://b3vw8yocx5jli" path="res://assets/characters-animation/Idle.png" id="9_vk05u"]
+[ext_resource type="PackedScene" uid="uid://srs2bk47sxsv" path="res://scenes/characters/npcjapan.tscn" id="8_n6v1h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oxku7"]
 radius = 34.36568
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6c01r"]
-atlas = ExtResource("9_vk05u")
-region = Rect2(0, 0, 32, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qq1ri"]
-atlas = ExtResource("9_vk05u")
-region = Rect2(32, 0, 32, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nsxp"]
-atlas = ExtResource("9_vk05u")
-region = Rect2(64, 0, 32, 24)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yjrgh"]
-atlas = ExtResource("9_vk05u")
-region = Rect2(96, 0, 32, 24)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_n6v1h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6c01r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qq1ri")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8nsxp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yjrgh")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 4.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vk05u"]
-size = Vector2(22.8, 24)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u11xl"]
-bg_color = Color(0, 0, 0, 0.27450982)
-
-[sub_resource type="LabelSettings" id="LabelSettings_gqaik"]
 
 [node name="phase-1-1" type="Node"]
 
@@ -103,51 +59,5 @@ z_index = 1
 position = Vector2(-4, 7)
 shape = SubResource("CircleShape2D_oxku7")
 
-[node name="Sprite2D2" type="AnimatedSprite2D" parent="."]
-position = Vector2(805.375, 318)
-scale = Vector2(5.3359375, 4)
-sprite_frames = SubResource("SpriteFrames_n6v1h")
-animation = &"idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 5
-visibility_layer = 5
-position = Vector2(804.74994, 338.99997)
-scale = Vector2(5, 5)
-shape = SubResource("RectangleShape2D_vk05u")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CaixaDialogo" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 100.0
-offset_top = 480.0
-offset_right = 1200.0
-offset_bottom = 630.0
-theme_override_font_sizes/font_size = 1
-theme_override_styles/normal = SubResource("StyleBoxFlat_u11xl")
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="TextoDialogo" type="Label" parent="CanvasLayer"]
-visible = false
-offset_left = 150.0
-offset_top = 495.0
-offset_right = 1150.0
-offset_bottom = 615.0
-theme_override_font_sizes/font_size = 20
-vertical_alignment = 1
-autowrap_mode = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="Timer" type="Timer" parent="CanvasLayer"]
-
-[node name="LabelInteracao" type="Label" parent="."]
-offset_left = 723.0
-offset_top = 255.0
-offset_right = 901.0
-offset_bottom = 309.0
-text = "Pressione 'E' "
-label_settings = SubResource("LabelSettings_gqaik")
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="Npcjapan" parent="." instance=ExtResource("8_n6v1h")]
+position = Vector2(486, 511)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyh084f5fveax"]
+[gd_scene load_steps=10 format=3 uid="uid://dyh084f5fveax"]
 
 [ext_resource type="Texture2D" uid="uid://cluk2uy36qdpg" path="res://scenes/egito-1-2.jpeg" id="1_rjiiu"]
 [ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="2_uj1uc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="5_cjcb0"]
 [ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="6_r8ls5"]
 [ext_resource type="PackedScene" uid="uid://vbyh1qnct8xb" path="res://scenes/scene_trigger.tscn" id="7_vt4v6"]
+[ext_resource type="PackedScene" uid="uid://w6ilnxn8baho" path="res://scenes/characters/npcegito.tscn" id="8_7tsmv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uck6k"]
 radius = 34.36568
@@ -57,3 +58,6 @@ connected_scene = "phase-2"
 z_index = 1
 position = Vector2(-4, 7)
 shape = SubResource("CircleShape2D_uck6k")
+
+[node name="Npcegito" parent="." instance=ExtResource("8_7tsmv")]
+position = Vector2(456, 394)

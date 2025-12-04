@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://bp1frpiukj51l"]
+
+[ext_resource type="Script" uid="uid://bqhlcjt7risqa" path="res://scripts/levels/obstaculos.gd" id="1_jwkvf"]
+[ext_resource type="Texture2D" uid="uid://ce73ard527ogw" path="res://carros-novo.png" id="2_jwkvf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbfn5"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(0, 0, 1376, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uhom"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(1376, 0, 1376, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5mec"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(0, 768, 1376, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3wbj"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(1376, 768, 1376, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkt43"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(1376, 768, 1376, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbt1l"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(1376, 0, 1376, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjeh1"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(0, 0, 1376, 768)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w4bu"]
+atlas = ExtResource("2_jwkvf")
+region = Rect2(0, 768, 1376, 768)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gr8kl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbfn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uhom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5mec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3wbj")
+}],
+"loop": true,
+"name": &"carro_lento",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkt43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbt1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjeh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w4bu")
+}],
+"loop": true,
+"name": &"carro_rapido",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqmpt"]
+size = Vector2(85.5, 83)
+
+[node name="Obstaculos" type="CharacterBody2D"]
+position = Vector2(7, 4)
+collision_layer = 8
+script = ExtResource("1_jwkvf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(21.000002, 22.999998)
+scale = Vector2(0.19750182, 0.2590747)
+sprite_frames = SubResource("SpriteFrames_gr8kl")
+animation = &"carro_rapido"
+frame_progress = 0.91054195
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25.75, 22.5)
+shape = SubResource("RectangleShape2D_eqmpt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-10, -10, 69, 63)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

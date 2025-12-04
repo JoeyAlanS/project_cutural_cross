@@ -1,38 +1,80 @@
-[gd_scene load_steps=11 format=3 uid="uid://srs2bk47sxsv"]
+[gd_scene load_steps=18 format=3 uid="uid://srs2bk47sxsv"]
 
-[ext_resource type="Texture2D" uid="uid://b3vw8yocx5jli" path="res://assets/characters-animation/Idle.png" id="1_4espp"]
 [ext_resource type="Script" uid="uid://kd7gpttg4hx0" path="res://scripts/npcjapan.gd" id="1_6c01r"]
+[ext_resource type="Texture2D" uid="uid://1fsoo37utfff" path="res://assets/NPC_Samurai.png" id="2_abpig"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6c01r"]
-atlas = ExtResource("1_4espp")
-region = Rect2(0, 0, 32, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r72n"]
+atlas = ExtResource("2_abpig")
+region = Rect2(261, 0, 29, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qq1ri"]
-atlas = ExtResource("1_4espp")
-region = Rect2(32, 0, 32, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvp31"]
+atlas = ExtResource("2_abpig")
+region = Rect2(232, 0, 29, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nsxp"]
-atlas = ExtResource("1_4espp")
-region = Rect2(64, 0, 32, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntryn"]
+atlas = ExtResource("2_abpig")
+region = Rect2(203, 0, 29, 28)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yjrgh"]
-atlas = ExtResource("1_4espp")
-region = Rect2(96, 0, 32, 24)
+[sub_resource type="AtlasTexture" id="AtlasTexture_xm8kl"]
+atlas = ExtResource("2_abpig")
+region = Rect2(174, 0, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cof1u"]
+atlas = ExtResource("2_abpig")
+region = Rect2(145, 0, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3875f"]
+atlas = ExtResource("2_abpig")
+region = Rect2(116, 0, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4dpn"]
+atlas = ExtResource("2_abpig")
+region = Rect2(87, 0, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46kra"]
+atlas = ExtResource("2_abpig")
+region = Rect2(58, 0, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m31j0"]
+atlas = ExtResource("2_abpig")
+region = Rect2(29, 0, 29, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtxb6"]
+atlas = ExtResource("2_abpig")
+region = Rect2(0, 0, 29, 28)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50tsk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6c01r")
+"texture": SubResource("AtlasTexture_7r72n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qq1ri")
+"texture": SubResource("AtlasTexture_nvp31")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8nsxp")
+"texture": SubResource("AtlasTexture_ntryn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yjrgh")
+"texture": SubResource("AtlasTexture_xm8kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cof1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3875f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4dpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46kra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m31j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtxb6")
 }],
 "loop": true,
 "name": &"idle",
@@ -40,10 +82,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m3rhn"]
-size = Vector2(22.8, 24)
+size = Vector2(35.399998, 28.799997)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r5pi0"]
-bg_color = Color(0, 0, 0, 0.27450982)
+bg_color = Color(0, 0, 0, 0.89411765)
+
+[sub_resource type="FontFile" id="FontFile_abpig"]
+cache/0/35/0/ascent = 0.0
+cache/0/35/0/descent = 0.0
+cache/0/35/0/underline_position = 0.0
+cache/0/35/0/underline_thickness = 0.0
+cache/0/35/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_a5p2v"]
 font_size = 20
@@ -63,9 +117,7 @@ autoplay = "idle"
 frame_progress = 0.6968649
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-light_mask = 5
-visibility_layer = 5
-position = Vector2(-35, -41)
+position = Vector2(5.5, -50)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_m3rhn")
 
@@ -85,17 +137,18 @@ offset_left = 150.0
 offset_top = 495.0
 offset_right = 1150.0
 offset_bottom = 615.0
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = SubResource("FontFile_abpig")
+theme_override_font_sizes/font_size = 35
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Timer" type="Timer" parent="CanvasLayer"]
 
 [node name="LabelInteracao" type="Label" parent="."]
-offset_left = -96.0
-offset_top = -125.0
-offset_right = 82.0
-offset_bottom = -71.0
+offset_left = -117.0
+offset_top = -148.0
+offset_right = 61.0
+offset_bottom = -94.0
 text = "Pressione 'E' "
 label_settings = SubResource("LabelSettings_a5p2v")
 

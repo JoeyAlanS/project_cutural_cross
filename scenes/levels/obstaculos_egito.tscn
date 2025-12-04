@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://sjab2sjsevan"]
+
+[ext_resource type="Script" uid="uid://bqhlcjt7risqa" path="res://scripts/levels/obstaculos.gd" id="1_ilj3j"]
+[ext_resource type="Texture2D" uid="uid://clv48301ykxts" path="res://assets/enemies/carroca-egipcia (1).png" id="2_5tfb2"]
+[ext_resource type="Texture2D" uid="uid://drxtkyoq4k67r" path="res://assets/enemies/egito-carroca.png" id="3_sm1oh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpw6w"]
+atlas = ExtResource("2_5tfb2")
+region = Rect2(0, 0, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tfb2"]
+atlas = ExtResource("2_5tfb2")
+region = Rect2(0, 0, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sm1oh"]
+atlas = ExtResource("2_5tfb2")
+region = Rect2(0, 512, 1024, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3d3o"]
+atlas = ExtResource("3_sm1oh")
+region = Rect2(0, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtgvs"]
+atlas = ExtResource("3_sm1oh")
+region = Rect2(341, 341, 341, 341)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sujne"]
+atlas = ExtResource("3_sm1oh")
+region = Rect2(682, 341, 341, 341)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gr8kl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpw6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tfb2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sm1oh")
+}],
+"loop": true,
+"name": &"carro_lento",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3d3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtgvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sujne")
+}],
+"loop": true,
+"name": &"carro_rapido",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqmpt"]
+size = Vector2(85.5, 83)
+
+[node name="Obstaculos" type="CharacterBody2D"]
+position = Vector2(7, 4)
+collision_layer = 8
+script = ExtResource("1_ilj3j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(29.000004, 22)
+scale = Vector2(0.5718475, 0.35632)
+sprite_frames = SubResource("SpriteFrames_gr8kl")
+animation = &"carro_lento"
+frame_progress = 0.7873459
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25.75, 22.5)
+shape = SubResource("RectangleShape2D_eqmpt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-10, -10, 69, 63)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

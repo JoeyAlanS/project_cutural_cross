@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=3 uid="uid://b654u7wj0yn63"]
+
+[ext_resource type="Script" uid="uid://bqhlcjt7risqa" path="res://scripts/levels/obstaculos.gd" id="1_hco0g"]
+[ext_resource type="Texture2D" uid="uid://brfvfi0jbe6v4" path="res://assets/enemies/carroca-japa-png.png" id="2_hco0g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1f20"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iprx"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5smc"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlntw"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hco0g"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33yip"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ht41y"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlpwo"]
+atlas = ExtResource("2_hco0g")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gr8kl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1f20")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iprx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5smc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlntw")
+}],
+"loop": true,
+"name": &"carro_lento",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hco0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33yip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ht41y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlpwo")
+}],
+"loop": true,
+"name": &"carro_rapido",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eqmpt"]
+size = Vector2(85.5, 83)
+
+[node name="Obstaculos" type="CharacterBody2D"]
+position = Vector2(7, 4)
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_hco0g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(52.000008, 36)
+scale = Vector2(0.6262207, 0.3828125)
+sprite_frames = SubResource("SpriteFrames_gr8kl")
+animation = &"carro_rapido"
+frame_progress = 0.7003214
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(25.75, 22.5)
+shape = SubResource("RectangleShape2D_eqmpt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-10, -10, 69, 63)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

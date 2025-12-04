@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp8sxyxixrd2j"]
+[gd_scene load_steps=10 format=3 uid="uid://bp8sxyxixrd2j"]
 
 [ext_resource type="Texture2D" uid="uid://w8udgq01nc15" path="res://scenes/brasil-2-3.jpeg" id="1_smm3c"]
 [ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="2_ykhlg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="5_x2oqc"]
 [ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="6_3787h"]
 [ext_resource type="PackedScene" uid="uid://vbyh1qnct8xb" path="res://scenes/scene_trigger.tscn" id="7_hfekl"]
+[ext_resource type="PackedScene" uid="uid://fd8dmx5e26no" path="res://scenes/characters/npcbrasil.tscn" id="8_tsmn8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykhlg"]
 radius = 34.36568
@@ -57,3 +58,6 @@ connected_scene = "phase_3"
 z_index = 1
 position = Vector2(-4, 7)
 shape = SubResource("CircleShape2D_ykhlg")
+
+[node name="Npcbrasil" parent="." instance=ExtResource("8_tsmn8")]
+position = Vector2(465, 365)

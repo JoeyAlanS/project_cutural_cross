@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://lqoe8enm5qn4"]
+[gd_scene load_steps=9 format=3 uid="uid://lqoe8enm5qn4"]
 
 [ext_resource type="Script" uid="uid://b2dn3id1pklsq" path="res://scripts/levels/phase-1.gd" id="1_snng0"]
 [ext_resource type="Texture2D" uid="uid://gsx58sl3xjsf" path="res://assets/images/levels-images/japan-level/japao-fase-1.png" id="2_ehuar"]
 [ext_resource type="PackedScene" uid="uid://nmr1xhofiy4k" path="res://scenes/levels/portal.tscn" id="3_ehuar"]
 [ext_resource type="PackedScene" uid="uid://dynvl05j4mu1b" path="res://scenes/characters/player.tscn" id="4_5pg0e"]
 [ext_resource type="PackedScene" uid="uid://c151v0x2qmj3t" path="res://scenes/characters/player_2.tscn" id="5_mwq25"]
-[ext_resource type="PackedScene" uid="uid://343gqdvniw4e" path="res://scenes/levels/obstaculos.tscn" id="6_s2hio"]
 [ext_resource type="PackedScene" uid="uid://lqggmxm0wx8n" path="res://scenes/huds/pause_menu.tscn" id="7_ba6g4"]
 [ext_resource type="PackedScene" uid="uid://vbyh1qnct8xb" path="res://scenes/scene_trigger.tscn" id="8_ehuar"]
 
@@ -16,48 +15,37 @@ radius = 34.36568
 script = ExtResource("1_snng0")
 
 [node name="japao" type="Sprite2D" parent="."]
-position = Vector2(700.7369, 391.0702)
-scale = Vector2(0.730976, 0.73346335)
+position = Vector2(643, 362)
+scale = Vector2(0.668613, 0.662102)
 texture = ExtResource("2_ehuar")
 
 [node name="Portal" parent="." instance=ExtResource("3_ehuar")]
-position = Vector2(690, 183)
+position = Vector2(639, 183)
 collision_mask = 4
 
 [node name="player" parent="." instance=ExtResource("4_5pg0e")]
 position = Vector2(500, 716)
 collision_layer = 9
-collision_mask = 2
+collision_mask = 8
 
 [node name="player2" parent="." instance=ExtResource("5_mwq25")]
 position = Vector2(766, 672)
 collision_layer = 9
 collision_mask = 2
 
-[node name="Obstaculos" parent="." instance=ExtResource("6_s2hio")]
-visible = false
-position = Vector2(-103, 214)
-
-[node name="Obstaculos2" parent="." instance=ExtResource("6_s2hio")]
-visible = false
-position = Vector2(-109, 355)
-
-[node name="Obstaculos3" parent="." instance=ExtResource("6_s2hio")]
-visible = false
-position = Vector2(-99, 497)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.085
+[node name="Timer_obstaculo" type="Timer" parent="."]
+wait_time = 1.2999999999999998
+autostart = true
 
 [node name="pause_menu" parent="." instance=ExtResource("7_ba6g4")]
 
 [node name="SceneTrigger" parent="." instance=ExtResource("8_ehuar")]
-position = Vector2(693, 127)
+position = Vector2(633, 127)
 connected_scene = "phase_1_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTrigger"]
 z_index = 1
-position = Vector2(-4, 7)
+position = Vector2(9, 22)
 shape = SubResource("CircleShape2D_5pg0e")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer_obstaculo" to="." method="_on_timer_obstaculo_timeout"]
